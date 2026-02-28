@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Privacy License – Chat</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.2);
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header p {
+      margin: 0.25rem 0 0;
+      font-size: 0.875rem;
+      opacity: 0.8;
+    }
+    #messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .msg {
+      max-width: 85%;
+      padding: 0.75rem 1rem;
+      border-radius: 1rem;
+      line-height: 1.5;
+      font-size: 0.9375rem;
+    }
+    .msg.user {
+      align-self: flex-end;
+      background: #3b82f6;
+      color: #fff;
+      border-bottom-right-radius: 0.25rem;
+    }
+    .msg.bot {
+      align-self: flex-start;
+      background: #334155;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-bottom-left-radius: 0.25rem;
+    }
+    .msg.bot.error {
+      background: #7f1d1d;
+      border-color: rgba(255,255,255,0.1);
+    }
+    .msg .url-line { font-weight: 600; margin-bottom: 0.5rem; }
+    .msg .badge {
+      display: inline-block;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .badge.yes { background: #065f46; color: #a7f3d0; }
+    .badge.no { background: #7f1d1d; color: #fecaca; }
+    .msg pre {
+      background: rgba(0,0,0,0.3);
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      font-size: 0.8125rem;
+      margin: 0.5rem 0 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .form-wrap {
+      padding: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      background: rgba(0,0,0,0.2);
+    }
+    .form-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.5rem;
+    }
+    #input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: #1e293b;
+      color: #e2e8f0;
+      font-size: 1rem;
+    }
+    #input::placeholder { color: #94a3b8; }
+    #input:focus {
+      outline: none;
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+    }
+    #send {
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: none;
+      background: #3b82f6;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9375rem;
+    }
+    #send:hover { background: #2563eb; }
+    #send:disabled { opacity: 0.6; cursor: not-allowed; }
+    .hint {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      opacity: 0.7;
+      font-size: 0.875rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>🛡️ AI Privacy License – Chat</h1>
+    <p>Paste a URL or type a message containing a link to check for an AI Privacy License.</p>
+  </header>
+
+  <div id="messages">
+    <div class="hint">Try: https://example.com or the demo site https://melodious-dango-e6155a.netlify.app/</div>
+  </div>
+
+  <div class="form-wrap">
+    <form class="form-inner" id="form">
+      <input type="text" id="input" placeholder="Paste a URL or type a message..." autocomplete="off">
+      <button type="submit" id="send">Check</button>
+    </form>
+  </div>
+
+  <script>
+    const messagesEl = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+    const sendBtn = document.getElementById('send');
+
+    function clearHint() {
+      const h = messagesEl.querySelector('.hint');
+      if (h) h.remove();
+    }
+
+    function addMessage(content, isUser) {
+      clearHint();
+      const div = document.createElement('div');
+      div.className = 'msg ' + (isUser ? 'user' : 'bot');
+      div.textContent = content;
+      messagesEl.appendChild(div);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function addBotResult(url, result, isError) {
+      clearHint();
+      const div = document.createElement('div');
+      div.className = 'msg bot' + (isError ? ' error' : '');
+
+      if (isError) {
+        div.innerHTML = '<span class="url-line">' + escapeHtml(url) + '</span><br>' + escapeHtml(result);
+        messagesEl.appendChild(div);
+      } else {
+        const r = result.result || result;
+        const hasLicense = r.has_license === true;
+        const restr = r.restrictions || {};
+        let html = '<span class="url-line">' + escapeHtml(url) + '</span><br>';
+        html += '<span class="badge ' + (hasLicense ? 'yes' : 'no') + '">' + (hasLicense ? 'Has license' : 'No license') + '</span>';
+        if (hasLicense && restr) {
+          html += '<span class="badge ' + (restr.allow_training ? 'yes' : 'no') + '">Training: ' + (restr.allow_training ? 'Allowed' : 'Blocked') + '</span>';
+          if (restr.attribution_required) html += '<span class="badge yes">Attribution required</span>';
+        }
+        html += '<pre>' + escapeHtml(JSON.stringify(r, null, 2)) + '</pre>';
+        div.innerHTML = html;
+        messagesEl.appendChild(div);
+      }
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function escapeHtml(s) {
+      const el = document.createElement('span');
+      el.textContent = s;
+      return el.innerHTML;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const text = (input.value || '').trim();
+      if (!text) return;
+
+      addMessage(text, true);
+      input.value = '';
+      sendBtn.disabled = true;
+
+      try {
+        const res = await fetch('/api/check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text })
+        });
+        const data = await res.json();
+        if (data.ok) {
+          addBotResult(data.url, data, false);
+        } else {
+          addBotResult(data.url || 'URL', data.error || 'Unknown error', true);
+        }
+      } catch (err) {
+        addBotResult('', err.message || 'Network error', true);
+      }
+      sendBtn.disabled = false;
+    });
+  </script>
+</body>
+</html>

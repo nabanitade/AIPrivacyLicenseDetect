@@ -226,6 +226,18 @@ ai-license --ndjson --summary \
   https://resonant-florentine-24200a.netlify.app/
 ```
 
+### **💬 Chat interface (try in the browser)**
+
+A simple chat-style web UI lets you paste URLs and see detection results in real time. Great for quick checks and demos.
+
+```bash
+pip install -e .
+pip install flask
+python chat_interface/server.py
+```
+
+Then open **http://127.0.0.1:5000** in your browser. Paste any URL (e.g. `https://example.com` or the demo sites above) and click **Check**. See [chat_interface/README.md](chat_interface/README.md) for details.
+
 ### **🚀 Production Integration**
 
 ```python
