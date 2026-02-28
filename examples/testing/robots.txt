@@ -1,0 +1,8 @@
+# AI Privacy License Enforcement
+ai-privacy-license-link: AiPrivacyLicense-1.0.txt
+
+# Standard robots.txt directives
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/

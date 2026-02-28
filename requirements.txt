@@ -1,0 +1,9 @@
+# Core dependencies for AI Privacy License Detector
+requests>=2.25.0
+beautifulsoup4>=4.9.0
+urllib3>=1.26.0
+
+# Optional: Development dependencies
+# pytest>=6.0.0
+# flake8>=3.8.0
+# black>=21.0.0

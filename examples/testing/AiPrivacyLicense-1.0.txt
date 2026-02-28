@@ -1,0 +1,110 @@
+AI Privacy License
+Version: Free Edition – Open Declaration License
+Provided by: Privacy License (https://www.privacylicense.ai)
+
+SPDX-License-Identifier: AiPrivacyLicense-1.0
+Generated: August 22, 2025
+License Expiry: 2025-08-22
+License Version: 1.0
+
+DATA GOVERNANCE PROFILE
+
+Identity & Authorship
+Data Owner Name: abc
+Data Description: abc
+Website URL: privacylicense.ai
+
+Governance Parameters
+Do Not Train Flag: strict
+License Type: do-not-train
+Commercial Use Permitted: yes
+Pre-Clearance for Output: yes
+Intended Use: abc
+NDA Required: true
+Attribution Required: Yes
+Attribution Text: abc
+
+Technical Metadata
+Sensitivity Level: public
+Data Classification Tier: tier1
+Data Type: Web Scraping Data
+Data Origin Location: california
+Linked Models or Uses: abc
+Number of Records: 1000
+Permitted Model Types: [Not specified — optionally add allowed model types]
+Data Hash (SHA-256): Not computed
+For enhanced traceability, data owners can obtain a unique, traceable identifier (e.g., SHA-256 hash) for their dataset by registering at www.aiprivacylicense.com. This identifier can be included in the license to support verification, provenance tracking, and downstream auditability.
+
+License Grant & Restrictions
+
+Copyright (c) 2025 abc
+Permission is hereby granted, free of charge, to any person obtaining a copy of this data and associated documentation files (the "Data"), to use, copy, modify, merge, publish, and distribute the Data under the restrictions specified below and the Data Usage Parameters provided herein, subject to the following conditions:
+
+Core Conditions
+
+Attribution Notice
+This copyright notice, the permission notice, the Data Usage Parameters, and the Attribution Text must be included in all copies or substantial portions of the Data. If no Attribution Text is specified, attribution may be fulfilled by including a copy of this license.
+
+Do Not Train Compliance
+If the Do Not Train flag is set to "Strict - No AI training allowed", the Data shall not be used to train, fine-tune or improve any artificial intelligence model ("AI model"), machine learning algorithm, or automated decision-making system.
+If the Do Not Train flag is set to "Research only - Academic Use",  The Data may only be used for academic AI training purposes under a recognized academic or nonprofit research setting.
+If the Do Not Train flag is set to "Allow Unrestricted AI Training ", the Data may be used for AI training, provided all other license conditions are met.
+
+Commercial Use Restriction
+If "Commercial Use" is set to "No", the Data shall not be used in any profit-generating applications, services, or products.
+
+Pre-Clearance Requirement
+If "Pre-Clearance for Output" is set to "Yes", any AI model trained or informed by this Data (in whole or in part) shall not be deployed, released, or commercially utilized without prior written approval from the Data Owner. This includes any outputs, derivatives, fine-tuned weights, or hosted inference services derived from the Data. Pre-clearance is a mandatory legal requirement for any deployment, distribution, or commercialization of outputs, weights, or derivatives informed by this Data.
+
+NDA Compliance
+If "NDA Required" is set to "Yes", access, use, or review of this Data is strictly prohibited unless the user has entered into a signed Non-Disclosure Agreement (NDA) with the Data Owner.
+To facilitate secure NDA workflows between data owners and users, you may register at aiprivacylicense.com. Use of such a platform does not replace the legal requirement to obtain a signed NDA unless explicitly authorized by the Data Owner.
+
+Linked Models Registry
+Any AI models, derivative works, or applications trained using this Data must be registered with the Data Owner.
+These derivative models are subject to the same governance and restrictions as the original Data.
+
+Model Derivatives Notice
+Any AI model, fine-tuned weight, or downstream application trained on or influenced by this Data must visibly reference the use of this license and provide a link to this license in model cards, system documentation, or deployment notes.
+
+Transparency & Auditability
+All AI models utilizing this Data may be required to submit proof of compliance, including audit logs, if requested by the Data Owner.
+
+Warranties and Disclaimer
+THE DATA IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. THE ENTIRE RISK AS TO THE USE OF THE DATA REMAINS WITH THE USER. IN NO EVENT SHALL THE DATA OWNER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE DATA OR THE USE OR OTHER DEALINGS IN THE DATA.
+
+Indemnification
+By using this Data or any derivatives thereof, you agree to indemnify, defend, and hold harmless the Data Owner from and against any and all claims, demands, liabilities, damages, losses, costs, and expenses (including attorneys' fees) arising out of or related to your use, misuse, or distribution of the Data or any violation of this license.
+
+Disclaimer of Responsibility by License Format Provider
+This license format ("AI Privacy License") is made available by Privacy License (https://www.privacylicense.ai) solely as a standardized framework to assist data owners in communicating data usage terms and governance preferences.
+Privacy License (https://www.privacylicense.ai) is not a party to this license agreement and does not assume any responsibility, obligation, or liability arising from or relating to the use of this license format, the enforcement of its terms, or any disputes that may arise between the data owner and any data user.
+The license is provided "as-is" without warranties of any kind, express or implied. Privacy License (https://www.privacylicense.ai) expressly disclaims any and all liability for damages, claims, legal actions, or losses of any kind resulting from the use, interpretation, or enforcement of this license, or reliance upon it by any party.
+Use of this license does not imply endorsement, enforcement, or legal oversight by Privacy License (https://www.privacylicense.ai). All rights, obligations, and risks related to the licensed data remain solely with the data owner and data users.
+By using this license, you acknowledge and agree that Privacy License (https://www.privacylicense.ai) shall bear no liability, in contract, tort, or otherwise, for any consequences that may arise in connection with this license or the data it governs.
+
+License Format Restrictions
+The AI Privacy License format, including its structure, terminology, and naming convention — is copyright © 2025 Privacy License (https://www.privacylicense.ai) and is provided as a standardized legal template for public use as-is.
+By accessing, generating, downloading, or including this license file in any websites, datasets, models, documentation, online content, projects or any derivative project, you acknowledge and agree to the following conditions:
+1. You may use this license freely, provided that the license file is included in its original, unmodified form.
+2. The name "AI Privacy License", its formatting, and its SPDX identifier (AiPrivacyLicense-1.0) must not be altered. All references must retain their original form, name and identifier.
+3. You may not modify, adapt, rebrand, sublicense, or create derivative versions of this license format, in whole or in part, without prior written approval from Privacy License (https://www.privacylicense.ai).
+These terms are intended to ensure consistent interpretation, enforceability, and interoperability of the AI Privacy License datasets, models, and platforms while maintaining public trust in the license ecosystem.
+
+Violation and Termination
+Any breach of these license terms results in immediate termination of all rights under this license.
+Termination does not waive the Data Owner's right to seek compensation, damages, or injunctive relief.
+
+Governing Law and Jurisdiction
+This license shall be governed by and interpreted in accordance with the laws of the jurisdiction specified by the Data Owner. In the absence of such designation, the laws of the State of Delaware, USA, shall apply. Any disputes shall be subject to the exclusive jurisdiction of the courts located in Delaware, USA.
+
+License Confirmation:
+By generating, downloading, referencing, or incorporating this data, you affirm that you have read, understood, and agreed to be bound by the terms of the AI Privacy License.
+
+POST-CRAWL GOVERNANCE CLAUSE
+This data is protected by the AI Privacy License — the world's first post-crawl data governance layer.
+"We don't block bots. We license their aftermath."
+Learn more: https://www.aiprivacylicense.com
+
+Contact  
+For model registration, licensing inquiries, or commercial requests related to this Data or its derivatives, including monetization, data licensing, or general questions, please contact the Data Owner at https://www.aiprivacylicense.com

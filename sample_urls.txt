@@ -1,0 +1,28 @@
+# Sample URLs for testing AI Privacy License Detector
+# Lines starting with # are comments and will be ignored
+# One URL per line
+
+# Test sites (no licenses expected)
+https://keen-flan-b72fc1.netlify.app/
+https://example.com
+https://httpbin.org
+
+# AI and tech sites (might have licenses)
+https://openai.com
+https://anthropic.com
+https://perplexity.ai
+
+# News and content sites
+https://techcrunch.com
+https://wired.com
+https://arstechnica.com
+
+# Educational sites
+https://mit.edu
+https://stanford.edu
+https://berkeley.edu
+
+# Government sites
+https://whitehouse.gov
+https://nasa.gov
+https://nih.gov

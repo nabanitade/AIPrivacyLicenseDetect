@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Privacy License Test Page</title>
+    
+    <!-- AI Privacy License Meta Tag -->
+    <meta name="ai-privacy-license-link" content="AiPrivacyLicense-1.0.txt">
+    
+    <!-- AI Privacy License Link Tag -->
+    <link rel="license" href="AiPrivacyLicense-1.0.txt">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Test Dataset for AI Privacy License",
+        "description": "A test dataset to demonstrate AI Privacy License detection",
+        "license": "AiPrivacyLicense-1.0.txt",
+        "creator": {
+            "@type": "Organization",
+            "name": "Test Data Owner"
+        }
+    }
+    </script>
+</head>
+<body>
+    <h1>AI Privacy License Test Page</h1>
+    <p>This page demonstrates all AI Privacy License detection methods:</p>
+    
+    <ul>
+        <li>✅ robots.txt with ai-privacy-license-link</li>
+        <li>✅ HTTP meta tag with ai-privacy-license-link</li>
+        <li>✅ Link tag with rel="license"</li>
+        <li>✅ JSON-LD structured data</li>
+        <li>✅ License file at AiPrivacyLicense-1.0.txt</li>
+    </ul>
+    
+    <h2>Test the Detection</h2>
+    <p>Run this command to test the library:</p>
+    <pre><code>python3 -m ai_privacy_license_detector.cli --verbose .</code></pre>
+    
+    <p>Or use the Python API:</p>
+    <pre><code>from ai_privacy_license_detector import check_url
+result = check_url(".")
+print(result.as_dict())</code></pre>
+    
+    <h2>Expected Results</h2>
+    <p>The library should detect:</p>
+    <ul>
+        <li><strong>Do Not Train Flag:</strong> strict → allow_training: false</li>
+        <li><strong>Commercial Use:</strong> yes → allow_commercial: true</li>
+        <li><strong>Attribution Required:</strong> Yes → attribution_required: true</li>
+        <li><strong>Attribution Text:</strong> "This data is provided by Test Data Owner for testing purposes"</li>
+        <li><strong>Data Owner:</strong> "Test Data Owner"</li>
+    </ul>
+</body>
+</html>
