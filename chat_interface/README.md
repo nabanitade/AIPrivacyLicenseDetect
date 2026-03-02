@@ -23,8 +23,40 @@ Then open **http://127.0.0.1:5000** in your browser.
 
 - Type or paste a URL (e.g. `https://example.com`) and press **Check** or Enter.
 - You can also type a sentence that contains a link; the app will detect the first URL.
-- Try the demo site with a license: `https://melodious-dango-e6155a.netlify.app/`
-- Try a site without: `https://resonant-florentine-24200a.netlify.app/`
+- Ask questions about a URL; the chat will answer from the detected license (e.g. *Is AI training allowed?*, *Is commercial use allowed?*).
+
+## Example messages to try
+
+Use any of these in the chat (with or without `https://`; the app accepts bare hostnames like `example.com`).
+
+### Just check a URL (full summary)
+- `example.com`
+- `https://example.com`
+- `https://melodious-dango-e6155a.netlify.app/`
+- `https://resonant-florentine-24200a.netlify.app/`
+
+### Ask about commercial use
+- `example.com is commercial use allowed?`
+- `https://melodious-dango-e6155a.netlify.app/ is commercial use allowed?`
+
+### Ask about AI training
+- `example.com is AI training allowed?`
+- `https://melodious-dango-e6155a.netlify.app/ can I train on this?`
+- `melodious-dango-e6155a.netlify.app is training allowed?`
+
+### Ask about attribution
+- `example.com how should it be attributed?`
+- `https://melodious-dango-e6155a.netlify.app/ attribution?`
+- `example.com how to attribute?`
+
+### Ask about do not train
+- `example.com is do not train enabled?`
+- `https://melodious-dango-e6155a.netlify.app/ do not train?`
+- `example.com is don't train enabled?`
+
+### Demo sites
+- **With license** (training blocked, attribution required): `https://melodious-dango-e6155a.netlify.app/`
+- **Without license**: `https://resonant-florentine-24200a.netlify.app/` or `https://example.com`
 
 ## Requirements
 

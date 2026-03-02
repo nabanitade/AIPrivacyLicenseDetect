@@ -236,7 +236,7 @@ pip install flask
 python chat_interface/server.py
 ```
 
-Then open **http://127.0.0.1:5000** in your browser. Paste any URL (e.g. `https://example.com` or the demo sites above) and click **Check**. See [chat_interface/README.md](chat_interface/README.md) for details.
+Then open **http://127.0.0.1:5000** in your browser. You can paste a URL alone or ask questions like: *Is commercial use allowed?* *Is AI training allowed?* *How should it be attributed?* *Is do not train enabled?* See [chat_interface/README.md](chat_interface/README.md) for example messages and details.
 
 ### **🚀 Production Integration**
 

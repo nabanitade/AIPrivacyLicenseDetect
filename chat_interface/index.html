@@ -75,13 +75,17 @@
     }
     .badge.yes { background: #065f46; color: #a7f3d0; }
     .badge.no { background: #7f1d1d; color: #fecaca; }
+    .msg .answer-text { margin-bottom: 0.5rem; }
+    .msg .answer-text strong { color: #f1f5f9; }
+    .msg details.json-details { margin-top: 0.5rem; }
+    .msg details summary { cursor: pointer; font-size: 0.8125rem; opacity: 0.85; }
     .msg pre {
       background: rgba(0,0,0,0.3);
       padding: 0.75rem;
       border-radius: 0.5rem;
       overflow-x: auto;
       font-size: 0.8125rem;
-      margin: 0.5rem 0 0;
+      margin: 0.25rem 0 0;
       white-space: pre-wrap;
       word-break: break-word;
     }
@@ -134,16 +138,16 @@
 <body>
   <header class="header">
     <h1>🛡️ AI Privacy License – Chat</h1>
-    <p>Paste a URL or type a message containing a link to check for an AI Privacy License.</p>
+    <p>Paste a URL and ask questions like: Is commercial use allowed? Is AI training allowed? How should it be attributed? Is do not train enabled?</p>
   </header>
 
   <div id="messages">
-    <div class="hint">Try: https://example.com or the demo site https://melodious-dango-e6155a.netlify.app/</div>
+    <div class="hint">Try: <strong>example.com</strong> or <strong>https://melodious-dango-e6155a.netlify.app/</strong><br>Then ask: &quot;Is AI training allowed?&quot; or &quot;Is commercial use allowed?&quot;</div>
   </div>
 
   <div class="form-wrap">
     <form class="form-inner" id="form">
-      <input type="text" id="input" placeholder="Paste a URL or type a message..." autocomplete="off">
+      <input type="text" id="input" placeholder="Paste URL and ask: is commercial use allowed? is AI training allowed?..." autocomplete="off">
       <button type="submit" id="send">Check</button>
     </form>
   </div>
@@ -168,6 +172,13 @@
       messagesEl.scrollTop = messagesEl.scrollHeight;
     }
 
+    function formatAnswer(text) {
+      if (!text) return '';
+      return escapeHtml(text)
+        .replace(/\n/g, '<br>')
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    }
+
     function addBotResult(url, result, isError) {
       clearHint();
       const div = document.createElement('div');
@@ -178,15 +189,21 @@
         messagesEl.appendChild(div);
       } else {
         const r = result.result || result;
+        const answer = result.answer;
         const hasLicense = r.has_license === true;
         const restr = r.restrictions || {};
-        let html = '<span class="url-line">' + escapeHtml(url) + '</span><br>';
-        html += '<span class="badge ' + (hasLicense ? 'yes' : 'no') + '">' + (hasLicense ? 'Has license' : 'No license') + '</span>';
-        if (hasLicense && restr) {
-          html += '<span class="badge ' + (restr.allow_training ? 'yes' : 'no') + '">Training: ' + (restr.allow_training ? 'Allowed' : 'Blocked') + '</span>';
-          if (restr.attribution_required) html += '<span class="badge yes">Attribution required</span>';
+        let html = '';
+        if (answer) {
+          html += '<div class="answer-text">' + formatAnswer(answer) + '</div>';
+        } else {
+          html += '<span class="url-line">' + escapeHtml(url) + '</span><br>';
+          html += '<span class="badge ' + (hasLicense ? 'yes' : 'no') + '">' + (hasLicense ? 'Has license' : 'No license') + '</span>';
+          if (hasLicense && restr) {
+            html += '<span class="badge ' + (restr.allow_training ? 'yes' : 'no') + '">Training: ' + (restr.allow_training ? 'Allowed' : 'Blocked') + '</span>';
+            if (restr.attribution_required) html += '<span class="badge yes">Attribution required</span>';
+          }
         }
-        html += '<pre>' + escapeHtml(JSON.stringify(r, null, 2)) + '</pre>';
+        html += '<details class="json-details"><summary>Raw result</summary><pre>' + escapeHtml(JSON.stringify(r, null, 2)) + '</pre></details>';
         div.innerHTML = html;
         messagesEl.appendChild(div);
       }
