@@ -7,14 +7,18 @@ A simple chat-style web UI to test the AI Privacy License detector. Paste a URL 
 From the **project root** (the folder that contains `ai_privacy_license_detector` and `chat_interface`):
 
 ```bash
-# 1. Install the SDK and Flask
+# 1. Use the project venv (recommended on macOS/Linux so Flask installs here, not system-wide)
+python3 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+
+# 2. Install the SDK and Flask
 pip install -e .
 pip install flask
 
-# 2. Run the chat server (either way works)
-python chat_interface/server.py
+# 3. Run the chat server
+python3 chat_interface/server.py
 # or
-cd chat_interface && python server.py
+cd chat_interface && python3 server.py
 ```
 
 Then open **http://127.0.0.1:5000** in your browser.

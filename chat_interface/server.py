@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Chat interface server for testing AI Privacy License detection.
-Run: pip install flask && python server.py
+Run: pip install flask && python3 server.py
 Then open http://127.0.0.1:5000
 """
 import json

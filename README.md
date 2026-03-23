@@ -233,7 +233,7 @@ A simple chat-style web UI lets you paste URLs and see detection results in real
 ```bash
 pip install -e .
 pip install flask
-python chat_interface/server.py
+python3 chat_interface/server.py
 ```
 
 Then open **http://127.0.0.1:5000** in your browser. You can paste a URL alone or ask questions like: *Is commercial use allowed?* *Is AI training allowed?* *How should it be attributed?* *Is do not train enabled?* See [chat_interface/README.md](chat_interface/README.md) for example messages and details.
